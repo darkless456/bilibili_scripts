@@ -79,8 +79,8 @@ function removeElements(document) {
         }
       });
     } else {
-      if(typeof element === 'function') {
-        element.remove();
+      if(typeof elements.remove === 'function') {
+        elements.remove();
       }
     }
   });
