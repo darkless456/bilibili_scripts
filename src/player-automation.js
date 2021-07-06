@@ -15,7 +15,16 @@
   const config = {
     closeBarrage: true,
     autoWidescreen: true,
-    autoPlayList: ['BV1ex411x7Em'],
+    autoPlayList: [],
+    redundantElements: [
+      '#bannerAd', 
+      '#activity_vote', 
+      '.ad-report', 
+      '.video-page-special-card', 
+      'reportFirst1',
+      'reportFirst2',
+      'reportFirst3',
+    ],
   };
 
   const document = this.document;
@@ -41,7 +50,7 @@
     expandDescription(document);
 
     // 删除部分元素
-    removeElements(document);
+    removeElements(config.redundantElements, document);
 
     console.log('初始化结束');
     console.groupEnd();
@@ -61,8 +70,7 @@
   observePlayerStatus(this);
 }.bind(window)());
 
-function removeElements(document) {
-  const selectors = ['#bannerAd', '#activity_vote', '.ad-report', '.video-page-special-card'];
+function removeElements(selectors, document) {
 
   selectors.forEach((selector) => {
     let elements;
@@ -72,14 +80,14 @@ function removeElements(document) {
       elements = document.querySelector(selector);
     }
 
-    if(elements && Array.isArray(elements)) {
+    if (elements && Array.isArray(elements)) {
       elements.forEach((element) => {
-        if(typeof element.remove === 'function') {
+        if (typeof element.remove === 'function') {
           element.remove();
         }
       });
     } else {
-      if(typeof elements.remove === 'function') {
+      if (typeof elements.remove === 'function') {
         elements.remove();
       }
     }
@@ -96,7 +104,7 @@ function expandDescription(document) {
 }
 
 function autoPlayList(videos, window) {
-  const button = window.document.getElementById('multi_page').getElementsByClassName('switch-button').item(0);
+  const button = window.document.getElementsByClassName('switch-button').item(0);
   const bv = window.location.pathname.split('/')[2];
   const isAutoPlayVideo = videos.includes(bv);
   let timer;

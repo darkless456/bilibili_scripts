@@ -1,2 +1,1 @@
-# bilibili_scripts
-bilibili enhancement scripts
+# 哔哩哔哩（bilibili）播放器辅助设置
