@@ -17,6 +17,16 @@ B 站的视频播放页（暂不含首页）
 - 自动展开简介
 - 移除部分广告元素
 
+## 关闭部分设置（需修改代码配置）
+
+在代码的如下位置：
+
+![config](./backups/config.jpg)
+
 ## 源码
 
 https://github.com/darkless456/bilibili_scripts
+
+## 联系方式
+
+如有问题，欢迎留言或者提issue

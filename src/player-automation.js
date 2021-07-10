@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         哔哩哔哩（bilibili）播放器辅助设置
 // @namespace    bilibili
-// @version      1.0.0
-// @description  
+// @version      1.0.1
+// @description  B站播放器增强设置，自动宽屏，默认最高画质，默认关闭弹幕等
 // @author       darkless
 // @match        https://www.bilibili.com/video/*
 // @grant        none
@@ -13,13 +13,13 @@
 (async function () {
   console.group('哔哩哔哩（bilibili）播放器初始化开始');
   const config = {
-    closeBarrage: true,
-    autoWidescreen: true,
-    autoPlayList: [],
+    closeBarrage: true, // true表示关闭弹幕，false表示开启弹幕
+    autoWidescreen: true, // true表示开启自动宽屏，false表示关闭自动宽屏
+    autoPlayList: [], // 开启自动连播白名单，目前仅支持BV号，如 ['BV123445']
     redundantElements: [
       '#bannerAd', 
-      '#activity_vote', 
-      '.ad-report', 
+      '#activity_vote', /*  */
+      '.ad-report', /*  */
       '.video-page-special-card', 
       'reportFirst1',
       'reportFirst2',
